@@ -464,11 +464,11 @@ Creates the main Graphviz graph.
 
 The function:
 
-1. creates the Graphviz graph;
-2. calls `drawBlockRecursive()`;
-3. obtains the graph edge list;
-4. draws connectivity edges;
-5. attaches connectivity weights as edge labels.
+1. creates the Graphviz graph
+2. calls `drawBlockRecursive()`
+3. obtains the graph edge list
+4. draws connectivity edges
+5. attaches connectivity weights as edge labels
 
 ### Output
 
