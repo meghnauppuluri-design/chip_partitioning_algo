@@ -13,8 +13,6 @@ input_2.txt
 
 `input_2.txt` describes the connectivity between the blocks.
 
----
-
 ## 2. `input_1.txt`
 
 The first file contains:
@@ -67,7 +65,7 @@ Block 5 -> {4, 1}
 The program calculates block area using:
 
 \[
-Area = Width \times Height
+Area = Width x Height
 \]
 
 For the reference input:
@@ -80,8 +78,6 @@ For the reference input:
 | 3 | 10 | 3 | 30 |
 | 4 | 8 | 4 | 32 |
 | 5 | 4 | 1 | 4 |
-
----
 
 ## 4. `input_2.txt`
 
@@ -99,8 +95,6 @@ Reference input:
  4 2 1 2 0 1
  2 1 2 3 1 0}
 ```
-
----
 
 ## 5. Matrix Interpretation
 
@@ -127,8 +121,6 @@ C[0][4] = 4
 ```
 
 means that the connectivity weight between blocks `0` and `4` is `4`.
-
----
 
 ## 6. Reference Matrix
 
