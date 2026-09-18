@@ -116,11 +116,7 @@ partitions.
 
 Conceptually:
 
-$$
-\operatorname{Cut}(A,B)
-=
-\sum_{\substack{u \in A \\ v \in B}} w(u,v)
-$$
+Cut(A, B) = Sum of w(u, v), for all u in A and v in B
 
 The FM procedure attempts to obtain a lower cut while respecting the
 partition balance condition implemented in the program.
