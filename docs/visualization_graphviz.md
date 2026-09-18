@@ -160,10 +160,10 @@ drawBlocks()
 
 creates the Graphviz graph and combines:
 
-- recursive partition clusters;
-- individual block nodes;
-- connectivity edges; and
-- connectivity-weight labels.
+- recursive partition clusters
+- individual block nodes
+- connectivity edges
+- connectivity-weight labels
 
 ## 11. Rendering
 
