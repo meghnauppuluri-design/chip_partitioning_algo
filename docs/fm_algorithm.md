@@ -116,10 +116,11 @@ partitions.
 
 Conceptually:
 
-\[
-Cut(A,B) =
+$$
+\operatorname{Cut}(A,B)
+=
 \sum_{\substack{u \in A \\ v \in B}} w(u,v)
-\]
+$$
 
 The FM procedure attempts to obtain a lower cut while respecting the
 partition balance condition implemented in the program.
@@ -131,9 +132,7 @@ opposite partition.
 
 Conceptually:
 
-\[
 Gain(v) = External(v) - Internal(v)
-\]
 
 A positive gain means that moving the block can reduce the current cut.
 
@@ -214,9 +213,9 @@ block.
 
 Conceptually:
 
-\[
-Cut_{new} = Cut_{old} - Gain(u)
-\]
+$$
+Cut_{\text{new}} = Cut_{\text{old}} - Gain(u)
+$$
 
 ## 10. Updating Neighbor Gains
 
