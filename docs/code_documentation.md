@@ -4,19 +4,17 @@
 
 The Python implementation contains functions for:
 
-- input processing;
-- graph initialization;
-- FM partitioning;
-- gain calculation;
-- cell movement;
-- rollback;
-- recursive partitioning; and
-- Graphviz visualization.
+- input processing
+- graph initialization
+- FM partitioning
+- gain calculation
+- cell movement
+- rollback
+- recursive partitioning
+- Graphviz visualization
 
 This document describes the purpose of each major function in the source
 code.
-
----
 
 ## 2. Function Summary
 
@@ -43,8 +41,6 @@ code.
 | `drawBlocks()` | Creates the Graphviz graph |
 | `main()` | Coordinates the complete program |
 
----
-
 ## 3. `initGraph()`
 
 ### Purpose
@@ -70,8 +66,6 @@ MAX_GAIN-related value
 The adjacency list makes it possible for later functions to access the
 neighbors and edge weights associated with a block.
 
----
-
 ## 4. `randomPartition()`
 
 ### Purpose
@@ -90,8 +84,6 @@ B
 ### Role
 
 These partitions provide the starting point for FM optimization.
-
----
 
 ## 5. `inSameSet()`
 
@@ -119,8 +111,6 @@ False
 This information is required when determining whether an edge is internal or
 external.
 
----
-
 ## 6. `printBox()`
 
 ### Purpose
@@ -132,8 +122,6 @@ Prints formatted messages during execution.
 Used to make important stages of the FM partitioning process easier to
 identify in console output.
 
----
-
 ## 7. `initBucket()`
 
 ### Purpose
@@ -144,11 +132,11 @@ Initializes the FM gain-related data structures.
 
 The function determines:
 
-- internal connectivity;
-- external connectivity;
-- gain values;
-- gain-bucket membership; and
-- initial cut information.
+- internal connectivity
+- external connectivity
+- gain values
+- gain-bucket membership
+- initial cut information
 
 ### Gain
 
@@ -161,8 +149,6 @@ Gain(v) = External(v) - Internal(v)
 ### Role
 
 This function prepares the data required before cell movement begins.
-
----
 
 ## 8. `get_compliment_set()`
 
@@ -181,8 +167,6 @@ If block is in B -> opposite partition is A
 ### Role
 
 Used during block movement and partition manipulation.
-
----
 
 ## 9. `find_maximum_gain_cells()`
 
@@ -203,8 +187,6 @@ The function considers:
 
 Determines the next candidate block for an FM movement.
 
----
-
 ## 10. `moveCellAndUpdate()`
 
 ### Purpose
@@ -215,13 +197,13 @@ Moves a selected block from its current partition to the opposite partition.
 
 The function:
 
-1. examines neighboring blocks;
-2. updates affected gain values;
-3. updates gain buckets;
-4. updates the cut;
+1. examines neighboring blocks
+2. updates affected gain values
+3. updates gain buckets
+4. updates the cut
 5. removes the moved block from the active gain information;
-6. removes the block from its old partition;
-7. inserts the block into its new partition.
+6. removes the block from its old partition
+7. inserts the block into its new partition
 
 ### Cut Update
 
@@ -232,8 +214,6 @@ Cut_{new} = Cut_{old} - Gain(u)
 \]
 
 where `u` is the moved block.
-
----
 
 ## 11. `rollBackToBestCut()`
 
@@ -261,8 +241,6 @@ The function restores the state associated with:
 ```text
 Cut = 8
 ```
-
----
 
 ## 12. `fmPass()`
 
@@ -301,8 +279,6 @@ Rollback to best cut
 
 Returns the best partition and cut information found during the pass.
 
----
-
 ## 13. `fm()`
 
 ### Purpose
@@ -318,8 +294,6 @@ The function:
 3. compares partition cut results;
 4. stops when the pass condition used by the implementation is reached;
 5. returns the resulting two-way partition.
-
----
 
 ## 14. `pruneAdjL()`
 
@@ -348,8 +322,6 @@ graph used by that recursive call.
 
 Allows FM to operate independently on each recursively generated subgraph.
 
----
-
 ## 15. `pruneAreaDict()`
 
 ### Purpose
@@ -361,8 +333,6 @@ subgraph.
 
 Keeps the area information consistent with the blocks remaining in the
 current recursive partition.
-
----
 
 ## 16. `fmRecursive()`
 
@@ -399,8 +369,6 @@ FM(A)  FM(B)
 
 Produces the recursive partition structure together with cut information.
 
----
-
 ## 17. `readInput()`
 
 ### Purpose
@@ -433,8 +401,6 @@ Provides:
 
 The parsed data is returned for graph construction and FM partitioning.
 
----
-
 ## 18. `get_color()`
 
 ### Purpose
@@ -445,8 +411,6 @@ Generates a color used by the Graphviz visualization.
 
 Different generated colors help visually distinguish parts of the recursive
 partition hierarchy.
-
----
 
 ## 19. `getEdgeList()`
 
@@ -466,8 +430,6 @@ v -> u
 
 The function prevents the same undirected edge from being added twice to the
 visualization.
-
----
 
 ## 20. `drawBlockRecursive()`
 
@@ -492,8 +454,6 @@ The node includes:
 When the partition contains subpartitions, Graphviz clusters are created and
 the function recursively processes the children.
 
----
-
 ## 21. `drawBlocks()`
 
 ### Purpose
@@ -513,8 +473,6 @@ The function:
 ### Output
 
 Returns the completed Graphviz graph object.
-
----
 
 ## 22. `main()`
 
@@ -554,8 +512,6 @@ Best cut ...
 ```
 
 and then creates the graphical representation of the partition hierarchy.
-
----
 
 ## 23. Program Entry Point
 
