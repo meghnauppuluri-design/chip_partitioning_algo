@@ -37,8 +37,6 @@ Partition A    Partition B
 Recursive FM    Recursive FM
 ```
 
----
-
 ## 2. Graph Initialization
 
 The input connectivity is represented using an adjacency matrix.
@@ -66,8 +64,6 @@ Adjacency List
 The adjacency list stores the neighboring blocks and corresponding
 connectivity weights.
 
----
-
 ## 3. Initial Partition
 
 The function:
@@ -86,8 +82,6 @@ Partition B
 ```
 
 The FM algorithm then attempts to improve this partition.
-
----
 
 ## 4. Internal and External Connections
 
@@ -115,8 +109,6 @@ Partition A       Partition B
 
 External edges contribute to the partition cut.
 
----
-
 ## 5. Cut
 
 The cut is the total weight of edges whose endpoints belong to different
@@ -132,8 +124,6 @@ Cut(A,B) =
 The FM procedure attempts to obtain a lower cut while respecting the
 partition balance condition implemented in the program.
 
----
-
 ## 6. Gain
 
 The gain of a block represents the effect of moving that block to the
@@ -148,8 +138,6 @@ Gain(v) = External(v) - Internal(v)
 A positive gain means that moving the block can reduce the current cut.
 
 A negative gain means that moving the block increases the cut at that stage.
-
----
 
 ## 7. Gain Bucket Initialization
 
@@ -176,8 +164,6 @@ Gain -1 : blocks with gain -1
 ...
 ```
 
----
-
 ## 8. Selecting a Cell
 
 The function:
@@ -198,8 +184,6 @@ Gain
   +
 Partition Balance
 ```
-
----
 
 ## 9. Moving a Cell
 
@@ -234,8 +218,6 @@ Conceptually:
 Cut_{new} = Cut_{old} - Gain(u)
 \]
 
----
-
 ## 10. Updating Neighbor Gains
 
 When a block moves, its incident edges may change from:
@@ -260,8 +242,6 @@ moveCellAndUpdate()
 
 updates the corresponding gains and gain buckets.
 
----
-
 ## 11. Locking
 
 A block that has moved during the current FM pass is locked.
@@ -282,8 +262,6 @@ Lock
    v
 Continue
 ```
-
----
 
 ## 12. FM Pass
 
@@ -325,8 +303,6 @@ Continue
 Rollback to best cut
 ```
 
----
-
 ## 13. Rollback
 
 The best partition may occur before the final movement of an FM pass.
@@ -357,8 +333,6 @@ In this example:
 Best cut = 9
 ```
 
----
-
 ## 14. Multiple FM Passes
 
 The function:
@@ -386,8 +360,6 @@ Better Partition
        v
 Final Partition
 ```
-
----
 
 ## 15. Recursive Partitioning
 
@@ -418,8 +390,6 @@ The algorithm then independently processes `A` and `B`.
 
 This continues recursively.
 
----
-
 ## 16. Graph Pruning
 
 For recursive processing, the program constructs smaller graphs containing
@@ -433,8 +403,6 @@ pruneAreaDict()
 ```
 
 prepare the corresponding adjacency and area information.
-
----
 
 ## 17. Base Case
 
@@ -452,8 +420,6 @@ Current Partition
 ```
 
 This block becomes a leaf of the recursive partition hierarchy.
-
----
 
 ## 18. Complete Flow
 
